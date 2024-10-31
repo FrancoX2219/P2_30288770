@@ -5,28 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuela de Artes Plásticas</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 </head>
 <body>
     <header>
-        <h1>Escuela de Artes Plásticas</h1>
+        <img src="/images/img_icon.png" alt="Imagen izquierda" class="header-imagen izquierda">
+        <div class="header-texto">
+            <h4>Escuela de Artes Plásticas</h4>
+            <h3>Fake School</h3>
+        </div>
+        <img src="/images/img_icon.png" alt="Imagen derecha" class="header-imagen derecha">
     </header>
     <main>
         <section id="descripcion">
-            <h2>Descripción del Servicio</h2>
-            <p>Ofrecemos una educación integral en diversas disciplinas de las artes plásticas...</p>
+            <div class="descripcion-texto">
+                <h2>Descripción del Servicio</h2>
+                <p>Esta escuela de artes plásticas ofrece una experiencia inmersiva para los estudiantes que desean explorar diversas disciplinas artísticas. Esta escuelas incluyen programas en pintura, escultura, grabado, cerámica, y dibujo, entre otros. Los servicios incluyen talleres equipados, acceso a materiales de arte, y estudios individuales o compartidos para trabajar en proyectos. Además, en la Escuela de Artes Plásticas Fake School suelen organizar exposiciones donde los estudiantes pueden mostrar su trabajo, así como charlas y talleres con artistas invitados.</p>
+            </div>
+            <div class="center">
+                <img src="/images/img1.jpg" alt="Descripción de la imagen 1" class="descripcion-imagen">
+            </div>
         </section>
         <section id="beneficios">
             <h2>Beneficios y Ventajas</h2>
             <ul>
                 <li>Desarrollo creativo</li>
+                <p>Imagina que nuestra escuela es un lienzo en blanco, lista para ser transformada. En primer lugar, integraríamos un programa diversificado que abarca desde técnicas clásicas hasta innovaciones modernas: pintura, escultura, instalación, multimedia. Talleres interactivos con artistas reconocidos y emergentes para inspirar y guiar a los estudiantes. El espacio físico sería un reflejo de este espíritu creativo: estudios con amplias ventanas para la luz natural, paredes móviles para exhibiciones espontáneas, rincones de colaboración y áreas de relax llenas de color y estímulo visual. Además, fomentaría un ambiente de crítica constructiva y apoyo mutuo, donde los estudiantes pueden explorar y desafiar sus límites.</p>
                 <li>Profesores experimentados</li>
+                <p>Nuestros profesores experimentados son verdaderos pilares de la escuela. Cada uno aporta una rica trayectoria en diversas disciplinas artísticas y una pasión contagiosa por el arte. No solo imparten conocimientos técnicos, sino que también inspiran creatividad y pensamiento crítico. Ellos trabajan incansablemente para: Guiar a los estudiantes a través de su desarrollo artístico, ofreciendo mentoría personalizada y retroalimentación constructiva. Desarrollar currículos dinámicos que integran técnicas clásicas y contemporáneas, asegurándose de que los estudiantes obtengan una formación completa. Organizar y supervisar talleres prácticos, permitiendo a los estudiantes experimentar con diferentes medios y técnicas. Fomentar un ambiente colaborativo, alentando a los estudiantes a trabajar juntos, compartir ideas y crecer como comunidad artística. Participar en actividades extracurriculares, como exposiciones y eventos artísticos, brindando oportunidades reales para que los estudiantes muestren su trabajo y se conecten con la comunidad artística más amplia. Estos profesores no solo enseñan; viven y respiran arte, creando un entorno inspirador donde los estudiantes pueden florecer.</p>
                 <li>Infraestructura moderna</li>
+                <p>Imagínate una escuela diseñada para inspirar y facilitar la creatividad: Estudios con luz natural: Espacios amplios y luminosos donde la luz del día realza los colores y detalles del trabajo artístico. Aulas modulares: Paredes móviles permiten transformar el espacio según las necesidades, facilitando desde clases teóricas hasta exposiciones. Talleres especializados: Equipados con herramientas de última generación para escultura, pintura, grabado, y técnicas mixtas. Laboratorios digitales: Con computadoras, tabletas gráficas y software avanzado para diseño y creación digital. Biblioteca y centro de recursos: Una colección vasta de libros, revistas y materiales digitales sobre arte y teoría. Zonas comunes y áreas de relajación: Espacios confortables para el intercambio de ideas y el descanso creativo. Exhibiciones permanentes y temporales: Áreas dedicadas a mostrar trabajos de estudiantes y artistas invitados, creando un entorno siempre inspirador. Toda esta infraestructura está pensada para fomentar un ambiente donde la creatividad y la innovación fluyan sin restricciones, haciendo de la escuela un verdadero epicentro de arte y cultura.</p>
             </ul>
         </section>
         <section id="imagenes">
             <h2>Galería de Imágenes</h2>
-            <img src="/images/img1.jpg" alt="Descripción de la imagen 1">
-            <img src="/images/img2.jpg" alt="Descripción de la imagen 2">
+            <div class="slider">
+                <div><img src="/images/img2.jpg" alt="Descripción de la imagen 2"></div>
+                <div><img src="/images/img_icon.jpg" alt="Descripción de la imagen 3"></div>
+            </div>
         </section>
         <section id="redes">
             <h2>Síguenos en Redes Sociales</h2>
@@ -35,7 +52,20 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Escuela de Artes Plásticas</p>
+        <p>&copy; 2024 Escuela de Artes Plásticas Fake School</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
 </body>
 </html>
