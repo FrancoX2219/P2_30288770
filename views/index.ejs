@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela de Artes Plásticas</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header-imagen {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .descripcion-imagen {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            .header-texto h4 {
+                font-size: 1.2rem;
+            }
+
+            .header-texto h3 {
+                font-size: 1.5rem;
+            }
+
+            .descripcion-imagen {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .header-texto h4 {
+                font-size: 2rem;
+            }
+
+            .header-texto h3 {
+                font-size: 2.5rem;
+            }
+
+            .descripcion-imagen {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/images/img_icon.png" alt="Imagen izquierda" class="header-imagen izquierda">
+        <div class="header-texto">
+            <h4>Escuela de Artes Plásticas</h4>
+            <h3>Fake School</h3>
+        </div>
+        <img src="/images/img_icon.png" alt="Imagen derecha" class="header-imagen derecha">
+    </header>
+    <main>
+        <section id="descripcion">
+            <div class="descripcion-texto">
+                <h2>Descripción del Servicio</h2>
+                <p>Esta escuela de artes plásticas ofrece una experiencia inmersiva para los estudiantes que desean explorar diversas disciplinas artísticas. Esta escuela incluye programas en pintura, escultura, grabado, cerámica, y dibujo, entre otros. Los servicios incluyen talleres equipados, acceso a materiales de arte, y estudios individuales o compartidos para trabajar en proyectos. Además, en la Escuela de Artes Plásticas Fake School suelen organizar exposiciones donde los estudiantes pueden mostrar su trabajo, así como charlas y talleres con artistas invitados.</p>
+            </div>
+            <div class="center">
+                <img src="/images/img1.jpg" alt="Descripción de la imagen 1" class="descripcion-imagen">
+            </div>
+        </section>
+        <section id="beneficios">
+            <h2>Beneficios y Ventajas</h2>
+            <ul>
+                <li>Desarrollo creativo</li>
+                <li>Profesores experimentados</li>
+                <li>Infraestructura moderna</li>
+            </ul>
+            <p>Imagina que nuestra escuela es un lienzo en blanco, lista para ser transformada. En primer lugar, integraríamos un programa diversificado que abarca desde técnicas clásicas hasta innovaciones modernas: pintura, escultura, instalación, multimedia. Talleres interactivos con artistas reconocidos y emergentes para inspirar y guiar a los estudiantes. El espacio físico sería un reflejo de este espíritu creativo: estudios con amplias ventanas para la luz natural, paredes móviles para exhibiciones espontáneas, rincones de colaboración y áreas de relax llenas de color y estímulo visual. Además, fomentaría un ambiente de crítica constructiva y apoyo mutuo, donde los estudiantes pueden explorar y desafiar sus límites.</p>
+        </section>
+        <section id="imagenes">
+            <h2>Galería de Imágenes</h2>
+            <div class="slider">
+                <div><img src="/images/img2.jpg" alt="Descripción de la imagen 2"></div>
+                <div><img src="/images/img_icon.jpg" alt="Descripción de la imagen 3"></div>
+            </div>
+        </section>
+        <section id="redes">
+            <h2>Síguenos en Redes Sociales</h2>
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Escuela de Artes Plásticas Fake School</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+</body>
+</html>
