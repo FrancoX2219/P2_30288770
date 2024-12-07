@@ -1,4 +1,4 @@
-const express = require('express');
+cconst express = require('express');
 const path = require('path');
 const ContactosController = require('./ContactosController');
 
@@ -16,10 +16,11 @@ app.get('/confirmacion', (req, res) => {
     res.send('Contacto enviado exitosamente.');
 });
 
-const PORT = process.env.PORT || 3000; // Render asigna un puerto automáticamente y lo asigna a process.env.PORT
+const PORT = process.env.PORT || 3000; // Usar la variable de entorno PORT proporcionada por Render
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
 module.exports = app;
+
 
