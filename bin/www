@@ -3,7 +3,7 @@
 const app = require('../server'); // Importa la instancia de express desde server.js
 const http = require('http');
 
-const port = normalizePort(process.env.PORT || '3000'); // Usa el puerto proporcionado por Render
+const port = normalizePort(process.env.PORT || '4000'); // Usa el puerto proporcionado por Render
 app.set('port', port);
 
 const server = http.createServer(app);
