@@ -16,7 +16,7 @@ app.get('/confirmacion', (req, res) => {
     res.send('Contacto enviado exitosamente.');
 });
 
-const PORT = process.env.PORT || 3000; // Usar la variable de entorno PORT proporcionada por Render
+const PORT = process.env.PORT || 4000; // Usar la variable de entorno PORT proporcionada por Render
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
