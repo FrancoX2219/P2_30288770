@@ -3,7 +3,7 @@
 const app = require('../server'); // Importa la instancia de express desde server.js
 const http = require('http');
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000'); // Usa el puerto de entorno proporcionado por Render o 3000 por defecto
 app.set('port', port);
 
 const server = http.createServer(app);
@@ -47,3 +47,4 @@ function onListening() {
     const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log('Listening on ' + bind);
 }
+
