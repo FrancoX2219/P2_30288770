@@ -1,40 +1,55 @@
 const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
 
 class ContactosModel {
     constructor() {
-        this.db = new sqlite3.Database(path.resolve(__dirname, 'contactos.db'), (err) => {
+        this.db = new sqlite3.Database('./contactos.db', (err) => {
             if (err) {
-                console.error('No se pudo conectar a la base de datos:', err);
+                console.error('Error al conectar con la base de datos:', err.message);
             } else {
-                console.log('Conectado a la base de datos SQLite');
+                console.log('Conectado a la base de datos SQLite.');
             }
         });
+        this._createTable();
+    }
 
-        this.db.run(`CREATE TABLE IF NOT EXISTS contactos (
+    _createTable() {
+        const sql = `CREATE TABLE IF NOT EXISTS contactos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT,
-            nombre TEXT,
-            comentario TEXT,
-            ip TEXT,
-            fecha_hora TEXT
-        )`);
-    }
-
-    guardarContacto(contacto, callback) {
-        const { email, nombre, comentario, ip, fechaHora } = contacto;
-        this.db.run(
-            `INSERT INTO contactos (email, nombre, comentario, ip, fecha_hora) VALUES (?, ?, ?, ?, ?)`,
-            [email, nombre, comentario, ip, fechaHora],
-            function (err) {
-                callback(err);
+            email TEXT NOT NULL,
+            nombre TEXT NOT NULL,
+            comentario TEXT NOT NULL,
+            ip TEXT NOT NULL,
+            fecha_hora TEXT NOT NULL
+        )`;
+        this.db.run(sql, (err) => {
+            if (err) {
+                console.error('Error al crear la tabla:', err.message);
             }
-        );
+        });
     }
 
-    obtenerContactos(callback) {
-        this.db.all(`SELECT * FROM contactos`, (err, rows) => {
-            callback(err, rows);
+    saveContacto(contacto, callback) {
+        const { email, nombre, comentario, ip, fecha_hora } = contacto;
+        const sql = `INSERT INTO contactos (email, nombre, comentario, ip, fecha_hora) VALUES (?, ?, ?, ?, ?)`;
+        this.db.run(sql, [email, nombre, comentario, ip, fecha_hora], function (err) {
+            if (err) {
+                console.error('Error al guardar el contacto:', err.message);
+                callback(err);
+            } else {
+                callback(null, this.lastID);
+            }
+        });
+    }
+
+    getContactos(callback) {
+        const sql = `SELECT * FROM contactos`;
+        this.db.all(sql, [], (err, rows) => {
+            if (err) {
+                console.error('Error al recuperar los contactos:', err.message);
+                callback(err);
+            } else {
+                callback(null, rows);
+            }
         });
     }
 }

@@ -1,40 +1,36 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const ContactosModel = require('./ContactosModel');
 
 class ContactosController {
     constructor() {
-        this.router = express.Router();
         this.contactosModel = new ContactosModel();
-
-        this.router.use(bodyParser.urlencoded({ extended: true }));
-
-        this.router.post('/send', this.add.bind(this));
     }
 
     add(req, res) {
         const { email, nombre, comentario } = req.body;
+        const ip = req.ip;
+        const fecha_hora = new Date().toISOString();
 
         if (!email || !nombre || !comentario) {
             return res.status(400).send('Todos los campos son obligatorios.');
         }
 
-        const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        const fechaHora = new Date().toISOString();
-
-        const nuevoContacto = {
-            email,
-            nombre,
-            comentario,
-            ip,
-            fechaHora
-        };
-
-        this.contactosModel.guardarContacto(nuevoContacto, (err) => {
+        const contacto = { email, nombre, comentario, ip, fecha_hora };
+        this.contactosModel.saveContacto(contacto, (err, id) => {
             if (err) {
-                return res.status(500).send('Error al guardar el contacto.');
+                res.status(500).send('Error al guardar el contacto.');
+            } else {
+                res.send(`Contacto guardado con éxito. ID: ${id}`);
             }
-            res.redirect('/confirmacion');
+        });
+    }
+
+    get(req, res) {
+        this.contactosModel.getContactos((err, contactos) => {
+            if (err) {
+                res.status(500).send('Error al recuperar los contactos.');
+            } else {
+                res.render('contactos', { contactos: contactos });
+            }
         });
     }
 }
