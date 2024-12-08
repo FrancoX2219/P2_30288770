@@ -1,8 +1,9 @@
 const sqlite3 = require('sqlite3').verbose();
+const dbPath = process.env.DATABASE_PATH || './contactos.db';
 
 class ContactosModel {
     constructor() {
-        this.db = new sqlite3.Database('./contactos.db', (err) => {
+        this.db = new sqlite3.Database(dbPath, (err) => {
             if (err) {
                 console.error('Error al conectar con la base de datos:', err.message);
             } else {
